@@ -8,3 +8,5 @@ bun run dev
 ```
 
 `bun run build` puts the site in `dist/`.
+
+Adding a note? See [WRITING.md](WRITING.md).

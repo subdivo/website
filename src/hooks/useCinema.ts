@@ -2,10 +2,11 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import { useLocation } from "react-router-dom";
 import { useLanguage } from "../i18n/useLanguage";
+import { findPost } from "../lib/posts";
 
 export function useCinema() {
   const { pathname } = useLocation();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   useEffect(() => {
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
@@ -31,6 +32,14 @@ export function useCinema() {
       "/journal": t.journal,
       "/projects": t.projects,
     };
-    document.title = `subdivo — ${titles[pathname] ?? t.notFound}`;
-  }, [pathname, t]);
+    const slug = pathname.startsWith("/journal/")
+      ? pathname.slice("/journal/".length)
+      : null;
+    const post = slug ? findPost(slug, language) : null;
+    const title = slug
+      ? (post?.title ??
+        (findPost(slug) ? t.translationMissing : t.articleMissing))
+      : (titles[pathname] ?? t.notFound);
+    document.title = `subdivo — ${title}`;
+  }, [pathname, t, language]);
 }

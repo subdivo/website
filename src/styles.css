@@ -1814,3 +1814,437 @@ body {
     font-size: 26px;
   }
 }
+
+/* A few pages, loosely threaded into a diary. */
+.diary {
+  position: relative;
+  max-width: 850px;
+  margin: 100px auto 20px;
+  padding-bottom: 40px;
+}
+.diary-thread {
+  position: absolute;
+  top: 5px;
+  left: 33px;
+  bottom: 80px;
+  width: 150px;
+  border: 1px solid #555;
+  border-right: 0;
+  border-radius: 55% 0 0 45%;
+  transform: rotate(-5deg);
+  opacity: 0.3;
+  pointer-events: none;
+}
+.diary-entry {
+  position: relative;
+  margin: 0 0 62px;
+}
+.diary-entry:nth-of-type(even) {
+  margin-left: 90px;
+}
+.diary-entry-link {
+  display: grid;
+  grid-template-columns: 70px 1fr 24px;
+  align-items: center;
+  gap: 27px;
+  padding: 15px 10px;
+}
+.diary-leaf {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 51px;
+  height: 67px;
+  background: #bdbdbd;
+  color: #282828;
+  font-size: 30px;
+  rotate: -9deg;
+  box-shadow: 4px 7px 20px #0005;
+  clip-path: polygon(
+    0 1%,
+    45% 0,
+    100% 1%,
+    99% 55%,
+    100% 100%,
+    60% 99%,
+    0 100%,
+    1% 46%
+  );
+  transition:
+    rotate 0.6s,
+    translate 0.6s;
+}
+.diary-leaf i {
+  position: absolute;
+  top: 6px;
+  width: 2px;
+  height: 2px;
+  background: #383838;
+  border-radius: 50%;
+}
+.diary-entry:nth-of-type(even) .diary-leaf {
+  rotate: 8deg;
+}
+.diary-entry-link:hover .diary-leaf {
+  rotate: 0deg;
+  translate: 0 -5px;
+}
+.entry-metadata {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font: 8px/1.8 var(--mono);
+  letter-spacing: 0.5px;
+  color: #999;
+}
+.diary-entry h2 {
+  font: 400 40px/1.2 var(--hand);
+  margin: 12px 0 14px;
+  color: #d9d9d9;
+  overflow-wrap: anywhere;
+}
+.diary-entry p {
+  font: 10px/2 var(--mono);
+  color: #999;
+  max-width: 440px;
+  overflow-wrap: anywhere;
+}
+.diary-entry-arrow {
+  color: #9c9c9c;
+  opacity: 0.45;
+  transition:
+    transform 0.4s,
+    opacity 0.4s;
+}
+.diary-entry-link:hover .diary-entry-arrow {
+  opacity: 1;
+  transform: translate(3px, -3px);
+}
+.draft-label {
+  color: #d0d0d0;
+  font: 8px var(--mono);
+  border-bottom: 1px dashed #737373;
+  padding-bottom: 2px;
+}
+.diary-end {
+  text-align: center;
+  font-size: 21px;
+  color: #686868;
+  margin-top: 80px;
+}
+.article-page {
+  max-width: 880px;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-bottom: 90px;
+}
+.article-back {
+  margin-bottom: 70px;
+}
+.article-heading {
+  margin-bottom: 70px;
+}
+.article-heading h1 {
+  font: 400 clamp(48px, 6vw, 76px) / 1.12 var(--hand);
+  margin: 23px 0 27px;
+  color: #e1e1e1;
+  overflow-wrap: anywhere;
+}
+.article-heading > p {
+  font: 12px/2.1 var(--mono);
+  color: #a5a5a5;
+  max-width: 600px;
+}
+.article-prose {
+  font:
+    400 15px/1.95 "Manrope",
+    sans-serif;
+  color: #c3c3c3;
+  overflow-wrap: anywhere;
+}
+.article-prose > :first-child {
+  margin-top: 0;
+}
+.article-prose p {
+  margin: 0 0 25px;
+}
+.article-prose h2,
+.article-prose h3,
+.article-prose h4,
+.article-prose h5,
+.article-prose h6 {
+  color: #dedede;
+  scroll-margin-top: 125px;
+}
+.article-prose h2 {
+  font: 400 40px/1.3 var(--hand);
+  margin: 60px 0 23px;
+}
+.article-prose h3 {
+  font: 400 31px/1.35 var(--hand);
+  margin: 43px 0 20px;
+}
+.article-prose h4,
+.article-prose h5,
+.article-prose h6 {
+  font-size: 16px;
+  margin: 30px 0 18px;
+}
+.article-prose a {
+  color: #e2e2e2;
+  text-decoration: underline;
+  text-decoration-color: #707070;
+  text-underline-offset: 5px;
+  transition: text-decoration-color 0.3s;
+}
+.article-prose a:hover {
+  text-decoration-color: #eee;
+}
+.article-prose ul,
+.article-prose ol {
+  margin: 18px 0 28px;
+  padding-left: 24px;
+}
+.article-prose li {
+  margin: 8px 0;
+  padding-left: 5px;
+}
+.article-prose li::marker {
+  color: #777;
+}
+.article-prose li > p {
+  margin: 8px 0;
+}
+.article-prose strong {
+  font-weight: 600;
+  color: #e3e3e3;
+}
+.article-prose blockquote {
+  margin: 35px 0;
+  padding: 4px 0 4px 25px;
+  border-left: 1px solid #5d5d5d;
+  font: 400 30px/1.4 var(--hand);
+  color: #b3b3b3;
+}
+.article-prose blockquote p:last-child {
+  margin-bottom: 0;
+}
+.article-prose pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 24px;
+  margin: 32px 0;
+  background: #111212;
+  border: 1px solid #ffffff0d;
+  border-radius: 2px;
+  font: 11px/1.9 var(--mono);
+  color: #d0d0d0;
+}
+.article-prose code {
+  font-family: var(--mono);
+  font-size: 0.84em;
+}
+.article-prose :not(pre) > code {
+  background: #ffffff0a;
+  padding: 3px 6px;
+  border-radius: 2px;
+  color: #ddd;
+}
+.article-prose pre code {
+  font-size: inherit;
+}
+.article-prose img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 35px auto;
+}
+.article-prose hr {
+  border: 0;
+  width: 35px;
+  height: 1px;
+  background: #6a6a6a;
+  margin: 55px auto;
+}
+.article-table {
+  overflow-x: auto;
+  margin: 30px 0;
+}
+.article-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font: 10px/1.8 var(--mono);
+}
+.article-prose th,
+.article-prose td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ffffff20;
+  text-align: left;
+  min-width: 100px;
+}
+.article-prose th {
+  color: #ddd;
+  font-weight: 400;
+}
+.article-prose .contains-task-list {
+  list-style: none;
+  padding-left: 0;
+}
+.article-prose input[type="checkbox"] {
+  accent-color: #aaa;
+  margin-right: 10px;
+}
+.article-end {
+  text-align: center;
+  color: #707070;
+  font-size: 24px;
+  margin: 75px 0;
+}
+.article-neighbours {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 60px;
+}
+.article-neighbours a > span {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: 9px var(--mono);
+  color: #929292;
+}
+.article-neighbours p {
+  margin-top: 15px;
+  font: 400 29px/1.25 var(--hand);
+  overflow-wrap: anywhere;
+}
+.article-neighbours a:last-child {
+  text-align: right;
+}
+.article-neighbours a:last-child > span {
+  justify-content: flex-end;
+}
+.article-bottom-back {
+  display: flex;
+  width: fit-content;
+  margin: 0 auto;
+}
+.article-unavailable {
+  min-height: 90svh;
+}
+.article-quiet-star {
+  display: block;
+  font-size: 33px;
+  color: #929292;
+  margin: 100px 0 35px;
+}
+.article-unavailable h1 {
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.2;
+  margin-bottom: 40px;
+}
+@media (max-width: 600px) {
+  .diary {
+    margin-top: 65px;
+  }
+  .diary-thread {
+    left: 15px;
+    width: 60px;
+    bottom: 100px;
+  }
+  .diary-entry {
+    margin-bottom: 45px;
+  }
+  .diary-entry:nth-of-type(even) {
+    margin-left: 20px;
+  }
+  .diary-entry-link {
+    grid-template-columns: 38px 1fr 15px;
+    gap: 15px;
+    padding: 12px 0;
+  }
+  .diary-leaf {
+    width: 32px;
+    height: 44px;
+    font-size: 21px;
+  }
+  .diary-entry h2 {
+    font-size: 33px;
+    margin: 10px 0;
+  }
+  .diary-entry p {
+    font-size: 9px;
+    line-height: 1.9;
+  }
+  .diary-entry-arrow {
+    width: 16px;
+  }
+  .entry-metadata {
+    font-size: 7px;
+    gap: 8px;
+    letter-spacing: 0.2px;
+  }
+  .article-page {
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-bottom: 70px;
+  }
+  .article-back {
+    font-size: 9px;
+    margin-bottom: 55px;
+  }
+  .article-heading {
+    margin-bottom: 45px;
+  }
+  .article-heading h1 {
+    font-size: 48px;
+    margin-top: 22px;
+  }
+  .article-heading > p {
+    font-size: 10px;
+  }
+  .article-prose {
+    font-size: 14px;
+    line-height: 1.95;
+  }
+  .article-prose h2 {
+    font-size: 35px;
+    margin-top: 42px;
+  }
+  .article-prose h3 {
+    font-size: 28px;
+  }
+  .article-prose pre {
+    padding: 18px;
+    font-size: 10px;
+  }
+  .article-prose blockquote {
+    font-size: 27px;
+    padding-left: 20px;
+  }
+  .article-neighbours {
+    gap: 25px;
+  }
+  .article-neighbours p {
+    font-size: 25px;
+  }
+  .article-neighbours a > span {
+    font-size: 8px;
+  }
+  .article-unavailable h1 {
+    font-size: 43px;
+  }
+}
+.article-loading {
+  min-height: 100svh;
+  display: grid;
+  place-content: center;
+  gap: 20px;
+  text-align: center;
+  font: 10px var(--mono);
+  color: #999;
+}
+.article-prose {
+  font-synthesis: style;
+}

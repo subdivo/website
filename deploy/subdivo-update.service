@@ -1,0 +1,19 @@
+[Unit]
+Description=Build and publish subdivo from GitHub main
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=subdivo
+Group=subdivo
+Environment=HOME=/srv/subdivo
+ExecStart=/usr/local/bin/subdivo-update
+TimeoutStartSec=10min
+UMask=0022
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/srv/subdivo
+

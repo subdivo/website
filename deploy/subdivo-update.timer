@@ -1,0 +1,11 @@
+[Unit]
+Description=Check GitHub for subdivo updates every minute
+
+[Timer]
+OnBootSec=30s
+OnUnitInactiveSec=60s
+Persistent=true
+Unit=subdivo-update.service
+
+[Install]
+WantedBy=timers.target

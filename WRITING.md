@@ -2,8 +2,8 @@
 
 ## Публикация через GitHub
 
-1. Открой https://github.com/subdivo/website/tree/main/content.
-2. Нажми **Add file → Create new file** и задай путь `posts/my-note.ru.md`.
+1. Открой https://github.com/subdivo/website/tree/main/content/posts.
+2. Нажми **Add file → Create new file** и задай имя `my-note.ru.md`.
    Имя заметки — латиницей, слова через дефис; для английской версии используй `.en.md`.
 3. Скопируй шаблон ниже, укажи заголовок и дату, напиши текст на Markdown.
 4. Поставь `draft: false` и сохрани файл коммитом в ветку `main`.
